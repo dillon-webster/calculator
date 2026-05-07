@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useApp } from '../context/AppContext'
-import { BUTTON_LAYOUT } from '../data/packages'
+import { BUTTON_LAYOUT, SUBSCRIPTION_DISPLAY } from '../data/packages'
 import { evaluateExpression, applyPlusMinus, getButtonPackage, isButtonUnlocked } from '../utils/calculator'
 import CalculatorButton from '../components/CalculatorButton'
 import LockedButtonModal from '../components/LockedButtonModal'
@@ -33,8 +33,8 @@ export default function CalculatorPage({ onOpenAuth = () => {} }) {
   }
 
   function handleLocked(label) {
-    const pkg = getButtonPackage(label)
-    if (pkg) setLockedPkg(pkg)
+    const pkg = getButtonPackage(label) ?? SUBSCRIPTION_DISPLAY
+    setLockedPkg(pkg)
   }
 
   return (
