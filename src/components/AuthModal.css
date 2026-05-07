@@ -1,0 +1,120 @@
+.auth-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-modal {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  background: var(--color-glass);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius);
+  padding: 2.5rem 2.5rem 2rem;
+  box-shadow: var(--shadow-gold), 0 24px 64px rgba(0, 0, 0, 0.6);
+}
+
+.auth-modal__close {
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  font-size: 1rem;
+  transition: color var(--transition);
+}
+
+.auth-modal__close:hover {
+  color: var(--color-silver);
+}
+
+.auth-modal__tabs {
+  display: flex;
+  gap: 0;
+  margin-bottom: 1.75rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.auth-tab {
+  flex: 1;
+  padding: 0.6rem 0;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: color var(--transition), border-color var(--transition);
+  margin-bottom: -1px;
+}
+
+.auth-tab--active {
+  color: var(--color-gold);
+  border-bottom-color: var(--color-gold);
+}
+
+.auth-modal__title {
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--color-text);
+  margin-bottom: 1.5rem;
+}
+
+.auth-modal__form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.auth-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-text);
+  font-size: 0.9rem;
+  font-family: var(--font-body);
+  transition: border-color var(--transition);
+  outline: none;
+}
+
+.auth-input:focus {
+  border-color: var(--color-gold-dim);
+}
+
+.auth-input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.auth-error {
+  font-size: 0.8rem;
+  color: var(--color-error);
+  letter-spacing: 0.03em;
+}
+
+.auth-submit {
+  margin-top: 0.5rem;
+  padding: 0.85rem;
+  background: var(--color-gold);
+  color: #0a0a0a;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  transition: background var(--transition);
+}
+
+.auth-submit:hover {
+  background: var(--color-gold-light);
+}
