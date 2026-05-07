@@ -118,3 +118,17 @@
 .locked-modal__btn--ghost:hover {
   color: var(--color-silver);
 }
+
+.locked-modal__subscribe-link {
+  display: block;
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.03em;
+  transition: color var(--transition);
+}
+
+.locked-modal__subscribe-link:hover {
+  color: var(--color-gold);
+}
