@@ -221,7 +221,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    padding: 3rem 1.5rem 3rem;
+    padding: 3rem 1.5rem;
     min-height: unset;
     gap: 0;
   }
