@@ -7,7 +7,7 @@ const TESTIMONIALS = [
   { quote: 'Worth every penny. Every. Single. Penny.', name: 'C. Laurent', title: 'Art Collector' },
 ]
 
-export default function LandingPage({ onOpenAuth }) {
+export default function LandingPage({ onOpenAuth = () => {} }) {
   return (
     <div className="landing">
       <section className="landing__hero">
@@ -32,17 +32,17 @@ export default function LandingPage({ onOpenAuth }) {
         <div className="landing__features-grid">
           <div className="landing__feature">
             <span className="landing__feature-icon">◈</span>
-            <h3>Curated Button Packages</h3>
+            <h3 className="landing__feature-title">Curated Button Packages</h3>
             <p>Each button is hand-selected for inclusion in its respective tier. We accept nothing less.</p>
           </div>
           <div className="landing__feature">
             <span className="landing__feature-icon">◈</span>
-            <h3>Exclusive Access</h3>
+            <h3 className="landing__feature-title">Exclusive Access</h3>
             <p>The equals button is reserved for our most discerning members. Are you ready?</p>
           </div>
           <div className="landing__feature">
             <span className="landing__feature-icon">◈</span>
-            <h3>A Complete Experience</h3>
+            <h3 className="landing__feature-title">A Complete Experience</h3>
             <p>Three tiers. One destiny. The full arithmetic suite, unlocked on your terms.</p>
           </div>
         </div>

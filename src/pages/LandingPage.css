@@ -66,7 +66,7 @@
   text-transform: uppercase;
   border-radius: var(--radius-sm);
   transition: all var(--transition);
-  border: none;
+  border: 1px solid transparent;
 }
 
 .landing__cta--primary {
@@ -137,7 +137,7 @@
   margin-bottom: 1.25rem;
 }
 
-.landing__feature h3 {
+.landing__feature-title {
   font-family: var(--font-display);
   font-size: 1.1rem;
   font-weight: 400;
