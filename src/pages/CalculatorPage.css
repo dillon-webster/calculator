@@ -40,3 +40,13 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 0.6rem;
 }
+
+@media (max-width: 640px) {
+  .calc-wrapper {
+    padding: 1.25rem 1.5rem 2rem;
+  }
+
+  .calc-grid {
+    gap: 0.5rem;
+  }
+}
