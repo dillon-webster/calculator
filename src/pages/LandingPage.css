@@ -1,0 +1,217 @@
+.landing {
+  min-height: 100vh;
+}
+
+/* Hero */
+.landing__hero {
+  min-height: calc(100vh - 64px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6rem 8rem 6rem 8rem;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.landing__hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 70% at 70% 50%, rgba(201, 168, 76, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.landing__hero-inner {
+  max-width: 560px;
+  z-index: 1;
+}
+
+.landing__eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 1.5rem;
+}
+
+.landing__headline {
+  font-size: clamp(3.5rem, 6vw, 5.5rem);
+  line-height: 1.05;
+  font-weight: 400;
+  color: var(--color-text);
+  margin-bottom: 1.5rem;
+}
+
+.landing__subhead {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--color-silver);
+  max-width: 440px;
+  margin-bottom: 2.5rem;
+}
+
+.landing__cta-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.landing__cta {
+  display: inline-block;
+  padding: 0.85rem 2rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition);
+  border: none;
+}
+
+.landing__cta--primary {
+  background: var(--color-gold);
+  color: #0a0a0a;
+}
+
+.landing__cta--primary:hover {
+  background: var(--color-gold-light);
+  color: #0a0a0a;
+}
+
+.landing__cta--ghost {
+  background: transparent;
+  color: var(--color-silver);
+  border: 1px solid var(--color-border);
+}
+
+.landing__cta--ghost:hover {
+  color: var(--color-gold);
+  border-color: var(--color-gold-dim);
+}
+
+.landing__hero-ornament {
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+.landing__hero-digit {
+  font-family: var(--font-display);
+  font-size: clamp(12rem, 22vw, 22rem);
+  font-weight: 700;
+  color: rgba(201, 168, 76, 0.06);
+  line-height: 1;
+  display: block;
+}
+
+/* Shared section styles */
+.landing__section-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 3.5rem;
+  color: var(--color-text);
+}
+
+/* Features */
+.landing__features {
+  padding: 7rem 8rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.landing__features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+}
+
+.landing__feature {
+  text-align: center;
+}
+
+.landing__feature-icon {
+  display: block;
+  font-size: 1.5rem;
+  color: var(--color-gold);
+  margin-bottom: 1.25rem;
+}
+
+.landing__feature h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--color-text);
+  margin-bottom: 0.75rem;
+}
+
+.landing__feature p {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--color-silver);
+}
+
+/* Testimonials */
+.landing__testimonials {
+  padding: 7rem 8rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.landing__testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.landing__testimonial {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 2rem;
+}
+
+.landing__testimonial-quote {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--color-text);
+  margin-bottom: 1.25rem;
+  font-style: italic;
+}
+
+.landing__testimonial footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.landing__testimonial-name {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--color-gold);
+  text-transform: uppercase;
+}
+
+.landing__testimonial-title {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+/* CTA section */
+.landing__cta-section {
+  padding: 7rem 8rem;
+  text-align: center;
+}
+
+.landing__cta-title {
+  font-size: 2.5rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
+.landing__cta-body {
+  font-size: 1rem;
+  color: var(--color-silver);
+  margin-bottom: 2.5rem;
+}
