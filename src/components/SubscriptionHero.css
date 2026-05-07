@@ -90,3 +90,19 @@
   text-transform: uppercase;
   color: var(--color-gold);
 }
+
+@media (max-width: 640px) {
+  .sub-hero {
+    padding: 2.5rem 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .sub-hero__title {
+    font-size: 1.8rem;
+  }
+
+  .sub-hero__btn,
+  .sub-hero__active {
+    padding: 0.9rem 2rem;
+  }
+}

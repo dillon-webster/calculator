@@ -14,7 +14,7 @@ export default function Navbar({ onOpenAuth }) {
     <header className="navbar">
       <Link to="/" className="navbar__brand" onClick={close}>CALCVLVS</Link>
 
-      <nav className={`navbar__links${isOpen ? '' : ' navbar__links--hidden'}`}>
+      <nav id="navbar-menu" className={`navbar__links${isOpen ? '' : ' navbar__links--hidden'}`}>
         <Link to="/" className={pathname === '/' ? 'active' : ''} onClick={close}>Home</Link>
         <Link to="/store" className={pathname === '/store' ? 'active' : ''} onClick={close}>Store</Link>
         <Link to="/calculator" className={pathname === '/calculator' ? 'active' : ''} onClick={close}>Calculator</Link>
@@ -46,6 +46,7 @@ export default function Navbar({ onOpenAuth }) {
         onClick={() => setIsOpen(o => !o)}
         aria-label="menu"
         aria-expanded={isOpen}
+        aria-controls="navbar-menu"
       >
         <span /><span /><span />
       </button>
