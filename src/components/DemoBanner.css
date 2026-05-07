@@ -1,0 +1,63 @@
+.demo-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 2rem;
+  background: rgba(201, 168, 76, 0.07);
+  border-bottom: 1px solid var(--color-border);
+  font-size: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.demo-banner__text {
+  color: var(--color-silver);
+  letter-spacing: 0.02em;
+}
+
+.demo-banner__text strong {
+  color: var(--color-gold);
+  font-weight: 600;
+}
+
+.demo-banner__text code {
+  font-family: monospace;
+  color: var(--color-gold);
+  background: rgba(201, 168, 76, 0.1);
+  padding: 0.1em 0.35em;
+  border-radius: 2px;
+}
+
+.demo-banner__actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.demo-banner__btn {
+  padding: 0.35rem 1rem;
+  background: var(--color-gold);
+  color: #0a0a0a;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: background var(--transition);
+  cursor: pointer;
+}
+
+.demo-banner__btn:hover {
+  background: var(--color-gold-light);
+}
+
+.demo-banner__link {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--color-silver);
+}
+
+.demo-banner__link:hover {
+  color: var(--color-gold);
+}
