@@ -83,3 +83,80 @@
   color: var(--color-gold);
   border-color: var(--color-gold-dim);
 }
+
+/* Hamburger button — hidden on desktop */
+.navbar__hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.navbar__hamburger span {
+  display: block;
+  height: 1px;
+  background: var(--color-gold);
+  border-radius: 1px;
+  transition: opacity var(--transition);
+}
+
+/* Auth in drawer — hidden on desktop */
+.navbar__auth--drawer {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .navbar {
+    padding: 0 1.25rem;
+    flex-wrap: wrap;
+    height: auto;
+    min-height: 56px;
+  }
+
+  /* Hide desktop auth and show hamburger */
+  .navbar__auth--bar {
+    display: none;
+  }
+
+  .navbar__hamburger {
+    display: flex;
+  }
+
+  /* Nav links: full-width dropdown, hidden by default */
+  .navbar__links {
+    order: 3;
+    flex-direction: column;
+    width: 100%;
+    padding: 1rem 0 1.25rem;
+    gap: 0;
+    margin: 0;
+    border-top: 1px solid var(--color-border);
+    font-size: 0.85rem;
+  }
+
+  .navbar__links a {
+    padding: 0.75rem 0;
+    display: block;
+  }
+
+  .navbar__links--hidden {
+    display: none;
+  }
+
+  /* Auth controls inside drawer */
+  .navbar__auth--drawer {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-top: 0.75rem;
+    margin-top: 0.5rem;
+    border-top: 1px solid var(--color-border);
+  }
+}
