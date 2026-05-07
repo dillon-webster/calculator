@@ -51,4 +51,16 @@ describe('PackageCard', () => {
     renderCard(equalizerPkg)
     expect(screen.getByText(/most exclusive/i)).toBeInTheDocument()
   })
+
+  it('calls purchasePackage when logged in and purchase clicked', async () => {
+    localStorage.setItem('calc_user', JSON.stringify({ name: 'T', email: 't@x.com' }))
+    localStorage.setItem('calc_packages', JSON.stringify([]))
+    render(
+      <AppProvider>
+        <PackageCard pkg={basicPkg} onOpenAuth={vi.fn()} />
+      </AppProvider>
+    )
+    await userEvent.click(screen.getByRole('button', { name: /purchase/i }))
+    expect(screen.getByText(/owned/i)).toBeInTheDocument()
+  })
 })

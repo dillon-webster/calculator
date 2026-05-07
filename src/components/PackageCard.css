@@ -109,6 +109,7 @@
   text-transform: uppercase;
   transition: background var(--transition);
   margin-top: auto;
+  cursor: pointer;
 }
 
 .pkg-card__purchase:hover {

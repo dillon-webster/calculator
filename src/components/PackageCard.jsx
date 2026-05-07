@@ -19,7 +19,7 @@ export default function PackageCard({ pkg, onOpenAuth = () => {} }) {
       </div>
       <div className="pkg-card__price">{pkg.priceDisplay}</div>
       <ul className="pkg-card__features">
-        {pkg.features.map(f => (
+        {(pkg.features ?? []).map(f => (
           <li key={f} className="pkg-card__feature">
             <span className="pkg-card__check">◆</span>
             {f}
@@ -27,7 +27,7 @@ export default function PackageCard({ pkg, onOpenAuth = () => {} }) {
         ))}
       </ul>
       <div className="pkg-card__buttons-preview">
-        {pkg.buttons.map(b => (
+        {(pkg.buttons ?? []).map(b => (
           <span key={b} className="pkg-card__btn-chip">{b}</span>
         ))}
       </div>
