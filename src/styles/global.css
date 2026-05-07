@@ -1,0 +1,65 @@
+@import '@fontsource/playfair-display/400.css';
+@import '@fontsource/playfair-display/700.css';
+@import '@fontsource/inter/300.css';
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/600.css';
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --color-bg: #0a0a0a;
+  --color-surface: #141414;
+  --color-surface-2: #1c1c1c;
+  --color-glass: rgba(18, 18, 18, 0.88);
+  --color-gold: #c9a84c;
+  --color-gold-light: #e8c97a;
+  --color-gold-dim: rgba(201, 168, 76, 0.35);
+  --color-gold-glow: rgba(201, 168, 76, 0.15);
+  --color-silver: #a8a8a8;
+  --color-text: #f0ece0;
+  --color-text-muted: #6a6a6a;
+  --color-border: rgba(201, 168, 76, 0.2);
+  --color-border-strong: rgba(201, 168, 76, 0.55);
+  --color-error: #c9604c;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --radius-sm: 2px;
+  --radius: 4px;
+  --radius-lg: 8px;
+  --transition: 0.18s ease;
+  --shadow-gold: 0 0 24px rgba(201, 168, 76, 0.12);
+}
+
+html, body, #root {
+  min-height: 100%;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: var(--color-gold);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+a:hover {
+  color: var(--color-gold-light);
+}
+
+button {
+  cursor: pointer;
+  font-family: var(--font-body);
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+}
