@@ -54,4 +54,13 @@ describe('CalculatorPage', () => {
     await userEvent.click(screen.getByRole('button', { name: '=' }))
     expect(screen.getByText(/premium feature/i)).toBeInTheDocument()
   })
+
+  it('evaluates expression when subscribed', async () => {
+    renderCalc([], true, true)
+    await userEvent.click(screen.getByRole('button', { name: '3' }))
+    await userEvent.click(screen.getByRole('button', { name: '+' }))
+    await userEvent.click(screen.getByRole('button', { name: '4' }))
+    await userEvent.click(screen.getByRole('button', { name: '=' }))
+    expect(screen.getByTestId('calc-display').textContent).toBe('7')
+  })
 })

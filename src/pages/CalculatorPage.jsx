@@ -8,7 +8,7 @@ import DemoBanner from '../components/DemoBanner'
 import './CalculatorPage.css'
 
 export default function CalculatorPage({ onOpenAuth = () => {} }) {
-  const { user, ownedPackages } = useApp()
+  const { user, ownedPackages, hasSubscription } = useApp()
   const [expression, setExpression] = useState('')
   const [lockedPkg, setLockedPkg] = useState(null)
 
@@ -53,7 +53,7 @@ export default function CalculatorPage({ onOpenAuth = () => {} }) {
             <CalculatorButton
               key={btn.label}
               label={btn.label}
-              unlocked={isButtonUnlocked(btn.label, ownedPackages, isLoggedIn)}
+              unlocked={isButtonUnlocked(btn.label, ownedPackages, isLoggedIn, hasSubscription)}
               onPress={handlePress}
               onLocked={() => handleLocked(btn.label)}
               colSpan={btn.colSpan}
