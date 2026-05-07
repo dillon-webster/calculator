@@ -19,6 +19,13 @@ Add a CALCVLVS Premier subscription tier to the existing DLC calculator app. Sub
 | Advanced Arithmetic | $1.99 | $3.98 |
 | The Equalizer | $9.99 | $19.98 |
 
+### The Equalizer — Button Change
+
+The `=` button is removed from The Equalizer package. It is now exclusive to the Premier subscription — the only way to evaluate an expression is to subscribe.
+
+Updated Equalizer buttons: `×` `÷` `CE` `C` `±` `%`  
+Updated Equalizer features list: `Multiplication`, `Division`, `Clear & reset`, `Sign inversion`, `Percentage`
+
 ---
 
 ## State Changes
@@ -83,4 +90,6 @@ No other changes to the modal.
 - Real payment processing
 - Subscription cancellation
 - Trial periods
-- Subscription-only exclusive buttons (subscription unlocks existing packages only)
+- The `=` button being available outside of a Premier subscription
+- Subscription cancellation
+- Trial periods
