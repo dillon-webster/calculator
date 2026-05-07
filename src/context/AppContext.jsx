@@ -14,6 +14,7 @@ function safeGet(key, fallback) {
 export function AppProvider({ children }) {
   const [user, setUser] = useState(() => safeGet('calc_user', null))
   const [ownedPackages, setOwnedPackages] = useState(() => safeGet('calc_packages', []))
+  const [hasSubscription, setHasSubscription] = useState(() => safeGet('calc_subscription', false))
 
   function signup(name, email, password) {
     const accounts = safeGet('calc_accounts', {})
@@ -25,6 +26,8 @@ export function AppProvider({ children }) {
     localStorage.setItem('calc_user', JSON.stringify(u))
     setOwnedPackages([])
     localStorage.setItem('calc_packages', JSON.stringify([]))
+    setHasSubscription(false)
+    localStorage.setItem('calc_subscription', JSON.stringify(false))
     return true
   }
 
@@ -37,14 +40,19 @@ export function AppProvider({ children }) {
     const userPkgs = safeGet(`calc_packages_${email}`, [])
     setOwnedPackages(userPkgs)
     localStorage.setItem('calc_packages', JSON.stringify(userPkgs))
+    const userSub = safeGet(`calc_subscription_${email}`, false)
+    setHasSubscription(userSub)
+    localStorage.setItem('calc_subscription', JSON.stringify(userSub))
     return true
   }
 
   function logout() {
     setUser(null)
     setOwnedPackages([])
+    setHasSubscription(false)
     localStorage.removeItem('calc_user')
     localStorage.removeItem('calc_packages')
+    localStorage.removeItem('calc_subscription')
   }
 
   function purchasePackage(packageId) {
@@ -56,8 +64,16 @@ export function AppProvider({ children }) {
     }
   }
 
+  function subscribe() {
+    setHasSubscription(true)
+    localStorage.setItem('calc_subscription', JSON.stringify(true))
+    if (user) {
+      localStorage.setItem(`calc_subscription_${user.email}`, JSON.stringify(true))
+    }
+  }
+
   return (
-    <AppContext.Provider value={{ user, ownedPackages, login, signup, logout, purchasePackage }}>
+    <AppContext.Provider value={{ user, ownedPackages, hasSubscription, login, signup, logout, purchasePackage, subscribe }}>
       {children}
     </AppContext.Provider>
   )
