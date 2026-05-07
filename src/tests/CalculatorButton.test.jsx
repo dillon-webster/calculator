@@ -38,4 +38,9 @@ describe('CalculatorButton', () => {
     renderBtn({ label: '0', unlocked: true, onPress: vi.fn(), onLocked: vi.fn(), colSpan: 2 })
     expect(screen.getByRole('button')).toHaveClass('calc-btn--wide')
   })
+
+  it('applies equals class when label is =', () => {
+    renderBtn({ label: '=', unlocked: false, onPress: vi.fn(), onLocked: vi.fn() })
+    expect(screen.getByRole('button')).toHaveClass('calc-btn--equals')
+  })
 })

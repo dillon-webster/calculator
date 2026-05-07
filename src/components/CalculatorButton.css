@@ -28,7 +28,7 @@
 
 .calc-btn--locked {
   opacity: 0.38;
-  cursor: pointer;
+  cursor: not-allowed;
 }
 
 .calc-btn--locked:hover {

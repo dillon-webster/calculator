@@ -1,6 +1,6 @@
 import './CalculatorButton.css'
 
-export default function CalculatorButton({ label, unlocked, onPress, onLocked, colSpan, rowSpan }) {
+export default function CalculatorButton({ label, unlocked, onPress = () => {}, onLocked = () => {}, colSpan, rowSpan }) {
   const classes = [
     'calc-btn',
     !unlocked && 'calc-btn--locked',
