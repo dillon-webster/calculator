@@ -215,3 +215,44 @@
   color: var(--color-silver);
   margin-bottom: 2.5rem;
 }
+
+@media (max-width: 640px) {
+  .landing__hero {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 3rem 1.5rem 3rem;
+    min-height: unset;
+    gap: 0;
+  }
+
+  .landing__hero-ornament {
+    display: none;
+  }
+
+  .landing__headline {
+    font-size: clamp(2.8rem, 12vw, 3.5rem);
+  }
+
+  .landing__features {
+    padding: 4rem 1.5rem;
+  }
+
+  .landing__features-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .landing__testimonials {
+    padding: 4rem 1.5rem;
+  }
+
+  .landing__testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .landing__cta-section {
+    padding: 4rem 1.5rem;
+  }
+}
