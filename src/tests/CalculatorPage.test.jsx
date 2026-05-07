@@ -36,7 +36,8 @@ describe('CalculatorPage', () => {
     renderCalc()
     const zeroBtn = screen.getByRole('button', { name: '0' })
     await userEvent.click(zeroBtn)
-    expect(screen.getByTestId('calc-display').textContent).toBe('0')
+    await userEvent.click(zeroBtn)
+    expect(screen.getByTestId('calc-display').textContent).toBe('00')
   })
 
   it('pressing a locked button opens the locked button modal', async () => {

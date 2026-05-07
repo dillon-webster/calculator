@@ -22,10 +22,11 @@ export default function CalculatorPage({ onOpenAuth = () => {} }) {
     } else if (label === 'CE') {
       setExpression(prev => prev.slice(0, -1))
     } else if (label === '±') {
-      setExpression(applyPlusMinus(expression))
+      const result = evaluateExpression(expression)
+      setExpression(applyPlusMinus(result !== 'Error' ? result : expression))
     } else if (label === '%') {
-      const num = parseFloat(expression)
-      if (!isNaN(num)) setExpression(String(num / 100))
+      const result = evaluateExpression(expression)
+      if (result !== 'Error') setExpression(String(parseFloat(result) / 100))
     } else {
       setExpression(prev => prev + label)
     }
