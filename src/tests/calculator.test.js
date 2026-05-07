@@ -39,8 +39,8 @@ describe('getButtonPackage', () => {
   it('returns advanced package for digit 7', () => {
     expect(getButtonPackage('7').id).toBe('advanced')
   })
-  it('returns equalizer package for =', () => {
-    expect(getButtonPackage('=').id).toBe('equalizer')
+  it('returns null for = (subscription-only)', () => {
+    expect(getButtonPackage('=')).toBeNull()
   })
   it('returns equalizer package for ×', () => {
     expect(getButtonPackage('×').id).toBe('equalizer')
@@ -63,7 +63,7 @@ describe('isButtonUnlocked', () => {
   it('unlocks button when its package is owned', () => {
     expect(isButtonUnlocked('1', ['basic'], true)).toBe(true)
   })
-  it('unlocks = when equalizer is owned', () => {
-    expect(isButtonUnlocked('=', ['equalizer'], true)).toBe(true)
+  it('= is locked even with equalizer package (subscription-only)', () => {
+    expect(isButtonUnlocked('=', ['equalizer'], true)).toBe(false)
   })
 })

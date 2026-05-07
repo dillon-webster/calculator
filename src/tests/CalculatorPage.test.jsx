@@ -7,10 +7,13 @@ import CalculatorPage from '../pages/CalculatorPage'
 
 beforeEach(() => localStorage.clear())
 
-function renderCalc(ownedPackages = [], loggedIn = false) {
+function renderCalc(ownedPackages = [], loggedIn = false, subscribed = false) {
   if (loggedIn) {
     localStorage.setItem('calc_user', JSON.stringify({ name: 'T', email: 't@x.com' }))
     localStorage.setItem('calc_packages', JSON.stringify(ownedPackages))
+    if (subscribed) {
+      localStorage.setItem('calc_subscription', JSON.stringify(true))
+    }
   }
   return render(
     <AppProvider>
@@ -42,17 +45,13 @@ describe('CalculatorPage', () => {
 
   it('pressing a locked button opens the locked button modal', async () => {
     renderCalc()
-    const fiveBtn = screen.getByRole('button', { name: '5' })
-    await userEvent.click(fiveBtn)
+    await userEvent.click(screen.getByRole('button', { name: '5' }))
     expect(screen.getByText(/premium feature/i)).toBeInTheDocument()
   })
 
-  it('evaluates expression when = is unlocked', async () => {
+  it('= is locked even when all packages owned', async () => {
     renderCalc(['basic', 'advanced', 'equalizer'], true)
-    await userEvent.click(screen.getByRole('button', { name: '3' }))
-    await userEvent.click(screen.getByRole('button', { name: '+' }))
-    await userEvent.click(screen.getByRole('button', { name: '4' }))
     await userEvent.click(screen.getByRole('button', { name: '=' }))
-    expect(screen.getByTestId('calc-display').textContent).toBe('7')
+    expect(screen.getByText(/premium feature/i)).toBeInTheDocument()
   })
 })
