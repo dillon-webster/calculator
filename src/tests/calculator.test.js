@@ -66,4 +66,12 @@ describe('isButtonUnlocked', () => {
   it('= is locked even with equalizer package (subscription-only)', () => {
     expect(isButtonUnlocked('=', ['equalizer'], true)).toBe(false)
   })
+  it('unlocks all buttons when subscribed', () => {
+    expect(isButtonUnlocked('=', [], true, true)).toBe(true)
+    expect(isButtonUnlocked('×', [], true, true)).toBe(true)
+    expect(isButtonUnlocked('7', [], true, true)).toBe(true)
+  })
+  it('does not unlock buttons for logged-out user even with subscription flag', () => {
+    expect(isButtonUnlocked('=', [], false, true)).toBe(false)
+  })
 })
