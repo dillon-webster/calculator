@@ -63,4 +63,16 @@ describe('PackageCard', () => {
     await userEvent.click(screen.getByRole('button', { name: /purchase/i }))
     expect(screen.getByText(/owned/i)).toBeInTheDocument()
   })
+
+  it('shows Included in Premier when subscribed', () => {
+    localStorage.setItem('calc_user', JSON.stringify({ name: 'T', email: 't@x.com' }))
+    localStorage.setItem('calc_subscription', JSON.stringify(true))
+    render(
+      <AppProvider>
+        <PackageCard pkg={basicPkg} onOpenAuth={vi.fn()} />
+      </AppProvider>
+    )
+    expect(screen.getByText(/included in premier/i)).toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: /purchase/i })).not.toBeInTheDocument()
+  })
 })

@@ -2,7 +2,7 @@ import { useApp } from '../context/AppContext'
 import './PackageCard.css'
 
 export default function PackageCard({ pkg, onOpenAuth = () => {} }) {
-  const { user, ownedPackages, purchasePackage } = useApp()
+  const { user, ownedPackages, hasSubscription, purchasePackage } = useApp()
   const owned = ownedPackages.includes(pkg.id)
 
   function handlePurchase() {
@@ -31,7 +31,9 @@ export default function PackageCard({ pkg, onOpenAuth = () => {} }) {
           <span key={b} className="pkg-card__btn-chip">{b}</span>
         ))}
       </div>
-      {owned ? (
+      {hasSubscription ? (
+        <div className="pkg-card__owned">◆ Included in Premier</div>
+      ) : owned ? (
         <div className="pkg-card__owned">✓ Owned</div>
       ) : (
         <button className="pkg-card__purchase" onClick={handlePurchase}>
