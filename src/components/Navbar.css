@@ -146,6 +146,7 @@
     display: block;
   }
 
+  /* Only takes effect inside this media query — desktop always shows nav regardless of isOpen */
   .navbar__links--hidden {
     display: none;
   }
