@@ -5,7 +5,7 @@ export default function DemoBanner({ onOpenAuth = () => {} }) {
   return (
     <div className="demo-banner">
       <span className="demo-banner__text">
-        You are in <strong>Demo Mode</strong> — only the <code>0</code> key is available.
+        You are in <strong>Demo Mode</strong>.
       </span>
       <div className="demo-banner__actions">
         <button className="demo-banner__btn" onClick={onOpenAuth}>Create Account</button>
