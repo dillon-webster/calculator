@@ -17,4 +17,9 @@ describe('BanModal', () => {
     render(<BanModal />)
     expect(screen.queryByRole('button')).not.toBeInTheDocument()
   })
+
+  it('focuses the dialog on mount', () => {
+    render(<BanModal />)
+    expect(document.activeElement).toBe(screen.getByRole('dialog'))
+  })
 })

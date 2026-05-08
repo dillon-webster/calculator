@@ -10,6 +10,7 @@
 }
 
 .ban-modal {
+  position: relative;
   width: 100%;
   max-width: 400px;
   background: var(--color-glass);
