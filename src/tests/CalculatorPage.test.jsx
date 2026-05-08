@@ -66,16 +66,14 @@ describe('CalculatorPage', () => {
 
   it('bans user when = produces an error', async () => {
     renderCalc([], true, true)
-    await userEvent.click(screen.getByRole('button', { name: '1' }))
-    await userEvent.click(screen.getByRole('button', { name: '+' }))
+    await userEvent.click(screen.getByRole('button', { name: '(' }))
     await userEvent.click(screen.getByRole('button', { name: '=' }))
     expect(screen.getByText("You've been banned from using calculator.")).toBeInTheDocument()
   })
 
   it('locked out after ban — buttons no longer update the display', async () => {
     renderCalc([], true, true)
-    await userEvent.click(screen.getByRole('button', { name: '1' }))
-    await userEvent.click(screen.getByRole('button', { name: '+' }))
+    await userEvent.click(screen.getByRole('button', { name: '(' }))
     await userEvent.click(screen.getByRole('button', { name: '=' }))
     // display shows 'Error' at this point; pressing 0 should not append '0'
     await userEvent.click(screen.getByRole('button', { name: '0' }))

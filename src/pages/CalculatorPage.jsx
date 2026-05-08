@@ -42,6 +42,7 @@ export default function CalculatorPage({ onOpenAuth = () => {} }) {
   }
 
   function handleLocked(label) {
+    if (isBanned) return
     const pkg = getButtonPackage(label) ?? SUBSCRIPTION_DISPLAY
     setLockedPkg(pkg)
   }
