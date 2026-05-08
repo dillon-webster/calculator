@@ -8,8 +8,15 @@ export default function BanModal() {
     dialogRef.current?.focus()
   }, [])
 
+  function handleKeyDown(e) {
+    e.preventDefault()
+    if (e.key === 'Tab') {
+      dialogRef.current?.focus()
+    }
+  }
+
   return (
-    <div className="ban-backdrop" data-testid="ban-backdrop">
+    <div className="ban-backdrop" data-testid="ban-backdrop" onKeyDown={handleKeyDown}>
       <div
         ref={dialogRef}
         className="ban-modal"

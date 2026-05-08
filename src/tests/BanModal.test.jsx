@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest'
 import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import BanModal from '../components/BanModal'
 
 describe('BanModal', () => {
@@ -21,5 +22,13 @@ describe('BanModal', () => {
   it('focuses the dialog on mount', () => {
     render(<BanModal />)
     expect(document.activeElement).toBe(screen.getByRole('dialog'))
+  })
+
+  it('traps focus on Tab', async () => {
+    render(<BanModal />)
+    const dialog = screen.getByRole('dialog')
+    dialog.focus()
+    await userEvent.tab()
+    expect(document.activeElement).toBe(dialog)
   })
 })
