@@ -4,6 +4,7 @@ import { BUTTON_LAYOUT, SUBSCRIPTION_DISPLAY } from '../data/packages'
 import { evaluateExpression, applyPlusMinus, getButtonPackage, isButtonUnlocked } from '../utils/calculator'
 import CalculatorButton from '../components/CalculatorButton'
 import LockedButtonModal from '../components/LockedButtonModal'
+import BanModal from '../components/BanModal'
 import DemoBanner from '../components/DemoBanner'
 import './CalculatorPage.css'
 
@@ -11,12 +12,20 @@ export default function CalculatorPage({ onOpenAuth = () => {} }) {
   const { user, ownedPackages, hasSubscription } = useApp()
   const [expression, setExpression] = useState('')
   const [lockedPkg, setLockedPkg] = useState(null)
+  const [isBanned, setIsBanned] = useState(false)
 
   const isLoggedIn = !!user
 
   function handlePress(label) {
+    if (isBanned) return
     if (label === '=') {
-      setExpression(evaluateExpression(expression))
+      const result = evaluateExpression(expression)
+      if (result === 'Error') {
+        setExpression('Error')
+        setIsBanned(true)
+      } else {
+        setExpression(result)
+      }
     } else if (label === 'C') {
       setExpression('')
     } else if (label === 'CE') {
@@ -48,7 +57,7 @@ export default function CalculatorPage({ onOpenAuth = () => {} }) {
           </div>
         </div>
 
-        <div className="calc-grid">
+        <div className={`calc-grid${isBanned ? ' calc-grid--disabled' : ''}`}>
           {BUTTON_LAYOUT.map(btn => (
             <CalculatorButton
               key={btn.label}
@@ -71,6 +80,8 @@ export default function CalculatorPage({ onOpenAuth = () => {} }) {
           isLoggedIn={isLoggedIn}
         />
       )}
+
+      {isBanned && <BanModal />}
     </div>
   )
 }

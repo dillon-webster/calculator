@@ -50,3 +50,8 @@
     gap: 0.5rem;
   }
 }
+
+.calc-grid--disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
