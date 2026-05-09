@@ -1,0 +1,53 @@
+.nsfw-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  z-index: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: all;
+}
+
+.nsfw-modal {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  background: var(--color-glass);
+  border: 1px solid #c0392b;
+  border-radius: var(--radius);
+  padding: 2.5rem 2.25rem 2rem;
+  box-shadow: 0 0 0 1px rgba(192, 57, 43, 0.4), 0 24px 64px rgba(0, 0, 0, 0.7);
+  text-align: center;
+  outline: none;
+}
+
+.nsfw-modal__warning {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #c0392b;
+  margin-bottom: 1rem;
+  letter-spacing: 0.1em;
+}
+
+.nsfw-modal__title {
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+  color: var(--color-gold);
+}
+
+.nsfw-modal__message {
+  font-size: 0.9rem;
+  color: var(--color-silver);
+  line-height: 1.7;
+  margin-bottom: 0.75rem;
+}
+
+.nsfw-modal__hint {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.3);
+  margin: 0;
+}

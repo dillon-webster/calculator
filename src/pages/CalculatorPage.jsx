@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import { useApp } from '../context/AppContext'
 import { BUTTON_LAYOUT, SUBSCRIPTION_DISPLAY } from '../data/packages'
-import { evaluateExpression, applyPlusMinus, getButtonPackage, isButtonUnlocked } from '../utils/calculator'
+import { evaluateExpression, applyPlusMinus, getButtonPackage, isButtonUnlocked, getModalTrigger } from '../utils/calculator'
 import CalculatorButton from '../components/CalculatorButton'
 import LockedButtonModal from '../components/LockedButtonModal'
 import BanModal from '../components/BanModal'
+import NsfwModal from '../components/NsfwModal'
+import SatanModal from '../components/SatanModal'
 import DemoBanner from '../components/DemoBanner'
 import './CalculatorPage.css'
 
@@ -13,18 +15,25 @@ export default function CalculatorPage({ onOpenAuth = () => {} }) {
   const [expression, setExpression] = useState('')
   const [lockedPkg, setLockedPkg] = useState(null)
   const [isBanned, setIsBanned] = useState(false)
+  const [specialModal, setSpecialModal] = useState(null) // 'nsfw' | 'satan' | null
 
   const isLoggedIn = !!user
 
+  function checkAndSetExpression(next) {
+    const trigger = getModalTrigger(next)
+    if (trigger) setSpecialModal(trigger)
+    setExpression(next)
+  }
+
   function handlePress(label) {
-    if (isBanned) return
+    if (isBanned || specialModal) return
     if (label === '=') {
       const result = evaluateExpression(expression)
       if (result === 'Error') {
         setExpression('Error')
         setIsBanned(true)
       } else {
-        setExpression(result)
+        checkAndSetExpression(result)
       }
     } else if (label === 'C') {
       setExpression('')
@@ -32,12 +41,13 @@ export default function CalculatorPage({ onOpenAuth = () => {} }) {
       setExpression(prev => prev.slice(0, -1))
     } else if (label === '±') {
       const result = evaluateExpression(expression)
-      setExpression(applyPlusMinus(result !== 'Error' ? result : expression))
+      checkAndSetExpression(applyPlusMinus(result !== 'Error' ? result : expression))
     } else if (label === '%') {
       const result = evaluateExpression(expression)
-      if (result !== 'Error') setExpression(String(parseFloat(result) / 100))
+      if (result !== 'Error') checkAndSetExpression(String(parseFloat(result) / 100))
     } else {
-      setExpression(prev => prev + label)
+      const next = expression + label
+      checkAndSetExpression(next)
     }
   }
 
@@ -83,6 +93,8 @@ export default function CalculatorPage({ onOpenAuth = () => {} }) {
       )}
 
       {isBanned && <BanModal />}
+      {specialModal === 'nsfw' && <NsfwModal />}
+      {specialModal === 'satan' && <SatanModal />}
     </div>
   )
 }
