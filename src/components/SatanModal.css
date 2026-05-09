@@ -1,7 +1,7 @@
 .satan-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(20, 0, 0, 0.9);
+  background: rgba(0, 0, 0, 0.75);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   z-index: 400;
@@ -11,59 +11,165 @@
   pointer-events: all;
 }
 
-.satan-modal {
+.satan-card {
   position: relative;
   width: 100%;
   max-width: 380px;
-  background: #0d0000;
-  border: 1px solid #8b0000;
-  border-radius: var(--radius);
-  padding: 2rem 2.25rem 2rem;
-  box-shadow: 0 0 32px rgba(139, 0, 0, 0.6), 0 24px 64px rgba(0, 0, 0, 0.9);
-  text-align: center;
+  background: #1b1b1b;
+  border: 1px solid #333;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 48px rgba(0, 0, 0, 0.8);
   outline: none;
 }
 
-.satan-modal__portrait {
-  margin: 0 auto 1.25rem;
-  width: 100px;
-  height: 100px;
+.satan-card__banner {
+  height: 80px;
+  background: linear-gradient(135deg, #8b0000 0%, #4a0000 60%, #1a0000 100%);
+}
+
+.satan-card__avatar-wrap {
+  position: absolute;
+  top: 36px;
+  left: 20px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
-  border: 2px solid #8b0000;
-  box-shadow: 0 0 20px rgba(192, 57, 43, 0.5);
+  border: 3px solid #1b1b1b;
   overflow: hidden;
   background: #1a0000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-.satan-modal__svg {
-  width: 90px;
-  height: 90px;
+.satan-card__avatar {
+  width: 100%;
+  height: 100%;
 }
 
-.satan-modal__title {
-  font-size: 1.3rem;
-  font-weight: 400;
-  margin-bottom: 0.75rem;
-  color: #c0392b;
-  letter-spacing: 0.02em;
+.satan-card__body {
+  padding: 12px 20px 20px;
+  margin-top: 32px;
 }
 
-.satan-modal__message {
-  font-size: 0.875rem;
-  color: rgba(255, 180, 180, 0.8);
-  line-height: 1.7;
-  margin-bottom: 0.75rem;
+.satan-card__name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #e8e8e8;
+  margin: 0 0 2px;
 }
 
-.satan-modal__message strong {
-  color: #ff4500;
-}
-
-.satan-modal__hint {
+.satan-card__badge {
   font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.25);
-  margin: 0;
+  font-weight: 400;
+  color: #c0392b;
+}
+
+.satan-card__headline {
+  font-size: 0.8rem;
+  color: #aaa;
+  margin: 0 0 6px;
+  line-height: 1.4;
+}
+
+.satan-card__meta {
+  font-size: 0.75rem;
+  color: #777;
+  margin: 0 0 4px;
+}
+
+.satan-card__connections {
+  color: #c0392b;
+}
+
+.satan-card__open {
+  font-size: 0.75rem;
+  color: #777;
+  margin: 0 0 14px;
+}
+
+.satan-card__open strong {
+  color: #aaa;
+}
+
+.satan-card__actions {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.satan-card__btn {
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: opacity 0.15s;
+}
+
+.satan-card__btn:hover {
+  opacity: 0.85;
+}
+
+.satan-card__btn--primary {
+  background: #c0392b;
+  color: #fff;
+}
+
+.satan-card__btn--secondary {
+  background: transparent;
+  color: #aaa;
+  border: 1px solid #555;
+  white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  .satan-card {
+    margin: 0 16px;
+  }
+
+  .satan-card__actions {
+    flex-direction: column;
+  }
+
+  .satan-card__btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.satan-card__divider {
+  border: none;
+  border-top: 1px solid #2e2e2e;
+  margin-bottom: 14px;
+}
+
+.satan-card__skills-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #e8e8e8;
+  margin: 0 0 10px;
+}
+
+.satan-card__skill {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.satan-card__skill:last-child {
+  border-bottom: none;
+}
+
+.satan-card__skill-name {
+  font-size: 0.8rem;
+  color: #aaa;
+}
+
+.satan-card__skill-count {
+  font-size: 0.75rem;
+  color: #c0392b;
+  font-weight: 600;
 }

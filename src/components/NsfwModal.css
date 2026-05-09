@@ -46,8 +46,13 @@
   margin-bottom: 0.75rem;
 }
 
-.nsfw-modal__hint {
-  font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.3);
-  margin: 0;
+@media (max-width: 480px) {
+  .nsfw-modal {
+    margin: 0 16px;
+    padding: 2rem 1.5rem 1.75rem;
+  }
+
+  .nsfw-modal__title {
+    font-size: 1.2rem;
+  }
 }

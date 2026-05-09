@@ -31,7 +31,6 @@ export default function NsfwModal() {
         <p id="nsfw-modal-desc" className="nsfw-modal__message">
           This is strictly NSFW. You must be 18 years or older to view this calculator.
         </p>
-        <p className="nsfw-modal__hint">Refresh the page to continue.</p>
       </div>
     </div>
   )
