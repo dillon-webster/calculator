@@ -1,7 +1,7 @@
 # CALCVLVS
 
 **The World's First Premium Calculator**
-
+Try the demo here:
 Live: https://calculator-black-nine-81.vercel.app/
 
 ---
@@ -26,12 +26,12 @@ CALCVLVS is a web application that reimagines the calculator as a luxury product
 
 ## Packages
 
-| Package | Price | Buttons Unlocked |
-|---|---|---|
-| Basic Arithmetic | $1.98 | `0–4`, `+`, `-` |
-| Advanced Arithmetic | $3.98 | `5–9`, `.`, `(`, `)` |
-| The Equalizer | $19.98 | `×`, `÷`, `CE`, `C`, `±`, `%` |
-| CALCVLVS Premier | $14.99/mo | `=` |
+| Package             | Price     | Buttons Unlocked              |
+| ------------------- | --------- | ----------------------------- |
+| Basic Arithmetic    | $1.98     | `0–4`, `+`, `-`               |
+| Advanced Arithmetic | $3.98     | `5–9`, `.`, `(`, `)`          |
+| The Equalizer       | $19.98    | `×`, `÷`, `CE`, `C`, `±`, `%` |
+| CALCVLVS Premier    | $14.99/mo | `=`                           |
 
 ## Development
 
