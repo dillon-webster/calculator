@@ -1,8 +1,7 @@
 # CALCVLVS
 
 **The World's First Premium Calculator**
-Try the demo here:
-Live: https://calculator-black-nine-81.vercel.app/
+[Try the demo here](https://calculator-black-nine-81.vercel.app/)
 
 ---
 
